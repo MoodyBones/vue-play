@@ -1,10 +1,12 @@
 var app = new Vue({
-  // create new instance
-  // then pass in the options object
-  el: '#app', // tell it where we want it to live. we target dom node with id #app
+  el: '#app', 
   data: {
-    seen: true
+    todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue' },
+      { text: 'Build something awesome' },
+    ]
   }
 })
 
-app.seen = false
+app.todos.push({ text: 'Meet Arne for Dinner <3' })

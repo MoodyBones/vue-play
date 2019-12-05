@@ -1,6 +1,6 @@
 # Scrimba Vue.js Tutorial
 
-[Scrimba](https://scrimba.com/p/pXKqta/cQ3QVcr) 
+[Scrimba](https://scrimba.com/p/pXKqta/cQ3QVcr)
 
 **Vue.js is a progressive framework for building user interfaces**
 
@@ -11,6 +11,7 @@ with a very straight forward template syntax
 cdn = content delivery network
 
 ## Lesson One - Hello Vue!
+
 ```
 var app = new Vue({
   // create new instance
@@ -26,19 +27,22 @@ app.message = `I have changed the data`
 
 ```
 
-
-
 ## Lesson 2 - Conditionals
 
-Toggle Presence of an element..
+Toggle Presence of an element
+
 ```
-// v-if is a Directive
+// v-if
+
+// is a Directive
 // v- special attribute provided by Vue
 
 // these apply reactive behaviour to the render dom
 
+
 <span v-if="seen">Now you see me</span>
-// what we are saying is 
+
+// what we are saying is
 // that we only want to render this span
 // if the seen property evaluates to true
 ```
@@ -46,8 +50,7 @@ Toggle Presence of an element..
 ```
 // seen property is in the data object
 var app = new Vue({
-
-  el: '#app', 
+  el: '#app',
   #app
   data: {
     seen: true
@@ -58,4 +61,35 @@ var app = new Vue({
 app.seen = false
 
 // we can bind data to texts and attributes and manipulate it very easily
+```
+
+## Lesson 3 - For Loops
+
+```
+// v-for
+
+// can be used to display a list of items,
+// using the data from an array
+
+<div id="app">
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ol>
+</div>
+```
+
+```
+data: {
+    todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue' },
+      { text: 'Build something awesome' },
+    ]
+
+
+
+// and to add
+app.todos.push({ text: 'Meet Arne for Dinner <3' })
 ```
