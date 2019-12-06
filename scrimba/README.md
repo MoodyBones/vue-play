@@ -12,6 +12,8 @@ cdn = content delivery network
 
 ## Lesson One - Hello Vue!
 
+`index.js`
+
 ```
 var app = new Vue({
   // create new instance
@@ -31,6 +33,8 @@ app.message = `I have changed the data`
 
 Toggle Presence of an element
 
+`index.html`
+
 ```
 // v-if
 
@@ -46,6 +50,8 @@ Toggle Presence of an element
 // that we only want to render this span
 // if the seen property evaluates to true
 ```
+
+`index.js`
 
 ```
 // seen property is in the data object
@@ -65,6 +71,8 @@ app.seen = false
 
 ## Lesson 3 - For Loops
 
+`index.html`
+
 ```
 // v-for
 
@@ -80,6 +88,8 @@ app.seen = false
 </div>
 ```
 
+`index.js`
+
 ```
 data: {
     todos: [
@@ -94,7 +104,9 @@ data: {
 app.todos.push({ text: 'Meet Arne for Dinner <3' })
 ```
 
-## Lesson 4 - Handling User Input
+## Lesson 4 - Event Listeners - Handling User Input
+
+`index.html`
 
 ```
 // v-on:click
@@ -106,6 +118,8 @@ app.todos.push({ text: 'Meet Arne for Dinner <3' })
 <button v-on:click="reverseMessage">Reverse Message</button>
 
 ```
+
+`index.js`
 
 ```
 var app = new Vue({
@@ -127,6 +141,8 @@ var app = new Vue({
 
 ## Lesson 5 - v-model
 
+`index.html`
+
 ```
 // v-model
 // makes it super simple to create 2 way bindings,
@@ -136,6 +152,8 @@ var app = new Vue({
 <input v-model="message">
 
 ```
+
+`index.js`
 
 ```
   data: {
@@ -149,11 +167,13 @@ var app = new Vue({
 
 Components are an abstraction,
 that allow us to build large scale apps,
-that are composed of small self contained,
+that are composed of small self contained
 and reusable components.
 
 A Vue Component is essentially an Vue Instance,
 with predfined options.
+
+`index.js`
 
 ```
 Vue.component('todo-item', {
@@ -164,6 +184,8 @@ var app = new Vue({
   el: '#app'
 })
 ```
+
+`index.html`
 
 ```
 <ol>
@@ -179,3 +201,61 @@ var app = new Vue({
 
 // see next lesson..
 ```
+
+## Lesson 7 - Create Components With Props
+
+A prop is like a custom attribute,
+and we have access to our prop in the template.
+
+`index.js`
+
+```
+
+Vue.component('todo-item', {
+    props: ['todo'],
+    template: '<li>{{ todo.text }}</li>'
+})
+// todo.text means the todo prop must be an object
+
+
+var app = new Vue({
+    el: '#app',
+    data: {
+      groceryList: [
+        { id: 0, text: 'Vegetables' },
+        { id: 1, text: 'Cheese' },
+        { id: 2, text: 'Whatever else humans are supposed to eat' }
+      ]
+    }
+})
+// the groceryList array contains 3 objects
+```
+
+`index.html`
+
+```
+// here we've added 3 directives
+// to the todo-item component
+
+<todo-item
+  v-for="item in groceryList"
+  v-bind:todo="item"
+  v-bind:key="item.id">
+</todo-item>
+```
+
+- `v-for`
+  - allows us to loop through the grocery list array and
+  - create a todo-item component instance, for each of the items
+- `v-bind:todo`
+  - we pass in the item, down to the component
+  - as the todo prop
+  - this accepts the todo prop because we set the `props: ['todo']` in the `Vue.component('todo-item',{})`.
+  - see index.js above
+- `v-bind:key`
+  - we need to give it a key so we fetch it here
+  - [more info on why we need keys](https://vuejs.org/v2/guide/list.html#key)
+
+**The parent and the child are now reasonably well de-coupled, so we can now improve our Vue.component with a more complex template and logic, without effecting the parent app.**
+
+This is just a peek at how reusable components are created with Vue, keep on learning!! :)))

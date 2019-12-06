@@ -64,15 +64,32 @@
 //   }
 // })
 
+// // //////////////
+// // Lesson 6  - Components
+
+// Vue.component('todo-item', {
+//   template: '<li>This is a todo</li'
+// })
+
+// var app = new Vue({
+//   el: '#app'
+// })
+
 // //////////////
-// Lesson 6  - Components
+// Lesson 7 - Create Components With Props
 
 Vue.component('todo-item', {
-  template: '<li>This is a todo</li'
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
 })
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    groceryList: [
+      { id: 0, text: 'Vegetables' },
+      { id: 1, text: 'Cheese' },
+      { id: 2, text: 'Whatever else humans are supposed to eat' }
+    ]
+  }
 })
-
-
