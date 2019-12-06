@@ -93,3 +93,39 @@ data: {
 // and to add
 app.todos.push({ text: 'Meet Arne for Dinner <3' })
 ```
+
+
+## Lesson 4 - Handling User Input
+
+```
+// v-on:click
+
+// allows you to attach event listeners
+// that evoke methods on your Vue instance
+
+<p>{{ message }}</p>
+<button v-on:click="reverseMessage">Reverse Message</button>
+
+```
+```
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!'
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+    }
+  }
+})
+
+// in this method we update the state of the app,
+//  without touching the dom
+// all dom manipulations are handled by view
+```
+
+
+
+
+
