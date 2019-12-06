@@ -144,3 +144,38 @@ var app = new Vue({
 
 // this makes user synchronisation super simple
 ```
+
+## Lesson 6 - Components
+
+Components are an abstraction,
+that allow us to build large scale apps,
+that are composed of small self contained,
+and reusable components.
+
+A Vue Component is essentially an Vue Instance,
+with predfined options.
+
+```
+Vue.component('todo-item', {
+  template: '<li>This is a todo</li'
+})
+
+var app = new Vue({
+  el: '#app'
+})
+```
+
+```
+<ol>
+  <todo-item></todo-item>
+</ol>
+
+// but this just renders the same 'This is a todo' string,
+// over and over
+
+// it would be better to
+// pass data from parent scope,
+// and into the child component
+
+// see next lesson..
+```

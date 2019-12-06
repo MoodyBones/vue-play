@@ -54,12 +54,25 @@
 //   }
 // })
 
+// // //////////////
+// // Lesson 5 - v-model
+
+// var app = new Vue({
+//   el: '#app',
+//   data: {
+//     message: 'Hello Vue!'
+//   }
+// })
+
 // //////////////
-// Lesson 5 - v-model
+// Lesson 6  - Components
+
+Vue.component('todo-item', {
+  template: '<li>This is a todo</li'
+})
 
 var app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue!'
-  }
+  el: '#app'
 })
+
+
