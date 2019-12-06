@@ -23,7 +23,6 @@
 
 // app.seen = false
 
-
 // ////////////////
 // Lesson 3 - For Loops
 
@@ -43,16 +42,24 @@
 // //////////////
 // Lesson 4 - Event Listeners - Handling User Input
 
+// var app = new Vue({
+//   el: '#app',
+//   data: {
+//     message: 'Hello Vue.js!'
+//   },
+//   methods: {
+//     reverseMessage: function () {
+//       this.message = this.message.split('').reverse().join('')
+//     }
+//   }
+// })
+
+// //////////////
+// Lesson 5 - v-model
+
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Hello Vue.js!'
-  },
-  methods: {
-    reverseMessage: function () {
-      this.message = this.message.split('').reverse().join('')
-    }
+    message: 'Hello Vue!'
   }
 })
-
-

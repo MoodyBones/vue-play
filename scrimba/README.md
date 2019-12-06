@@ -94,7 +94,6 @@ data: {
 app.todos.push({ text: 'Meet Arne for Dinner <3' })
 ```
 
-
 ## Lesson 4 - Handling User Input
 
 ```
@@ -107,6 +106,7 @@ app.todos.push({ text: 'Meet Arne for Dinner <3' })
 <button v-on:click="reverseMessage">Reverse Message</button>
 
 ```
+
 ```
 var app = new Vue({
   el: '#app',
@@ -125,7 +125,22 @@ var app = new Vue({
 // all dom manipulations are handled by view
 ```
 
+## Lesson 5 - v-model
 
+```
+// v-model
+// makes it super simple to create 2 way bindings,
+// between form inputs and app state
 
+<p>{{ message }}</p>
+<input v-model="message">
 
+```
 
+```
+  data: {
+    message: 'Hello Vue!'
+  }
+
+// this makes user synchronisation super simple
+```
