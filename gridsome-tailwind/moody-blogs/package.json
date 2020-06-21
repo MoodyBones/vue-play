@@ -1,0 +1,19 @@
+{
+  "name": "moody-blogs",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/remark-prismjs": "^0.3.0",
+    "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-remark": "^0.6.0",
+    "gridsome": "^0.7.15",
+    "tailwindcss": "^1.4.6"
+  },
+  "devDependencies": {
+    "gridsome-plugin-tailwindcss": "^2.2.48"
+  }
+}
