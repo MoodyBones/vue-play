@@ -18,6 +18,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <!--vue! you don't need a build process, just add in script tags-->
+    <!-- We are using production version, see Vue docs for build/other versions -->
     <style>
       /* resets */
       * {
@@ -63,7 +64,10 @@
   </head>
   <body>
     <div id="app">
-      <p>hello, world!</p>
+      <p
+        v-for="wizard in wizards()"
+        v-html="wizard.name + ' ' + wizard.pet"
+      ></p>
     </div>
 
     <script>
@@ -75,9 +79,38 @@
         return out
       }
 
+      function cast(emoji) {
+        if (!emoji) {
+          emoji = '¯\\_(ツ)_/¯'
+        }
+        return function (wizard) {
+          return emoji + wizard + emoji
+        }
+      }
+
       var app = new Vue({
         el: '#app',
+        data: {
+          wizard: '',
+          harry: emojify('harry'),
+          hedwig: emojify('hedwig'),
+          ron: emojify('ron'),
+          scabbers: emojify('scabbers'),
+          hermione: emojify('hermione'),
+          crookshanks: emojify('crookshanks'),
+        },
+        methods: {
+          wizards: function () {
+            return [
+              { name: this.harry, pet: this.hedwig },
+              { name: this.ron, pet: this.scabbers },
+              { name: this.hermione, pet: this.crookshanks },
+            ]
+          },
+        },
       })
+
+      app.wizard = app.ron
     </script>
   </body>
 </html>
